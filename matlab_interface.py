@@ -14,35 +14,27 @@ import os
 
 logger = logging.getLogger(__name__)
 
-# #region agent log
-_DEBUG_LOG_PATH = "/Users/akhilpatel/Desktop/Dissertation/.cursor/debug.log"
+# Debug logging (optional)
+_DEBUG_LOG_PATH = os.getenv("WFSIM_DEBUG_LOG", None)
 
 def _dbg(hypothesis_id: str, location: str, message: str, data: Dict):
-    try:
-        os.makedirs(os.path.dirname(_DEBUG_LOG_PATH), exist_ok=True)
-        payload = {
-            "sessionId": "debug-session",
-            "runId": "run2",
-            "hypothesisId": hypothesis_id,
-            "location": location,
-            "message": message,
-            "data": data,
-            "timestamp": int(time.time() * 1000),
-        }
-        with open(_DEBUG_LOG_PATH, "a", encoding="utf-8") as f:
-            f.write(json.dumps(payload) + "\n")
-    except Exception:
-        pass
-# #endregion agent log
-
-# #region agent log
-_dbg(
-    "D",
-    "matlab_interface.py:module_import",
-    "matlab_interface module imported",
-    {"python_exe": sys.executable, "python_version": sys.version.split(" ")[0]},
-)
-# #endregion agent log
+    """Optional debug logging - only logs if WFSIM_DEBUG_LOG environment variable is set"""
+    if _DEBUG_LOG_PATH:
+        try:
+            os.makedirs(os.path.dirname(_DEBUG_LOG_PATH), exist_ok=True)
+            payload = {
+                "sessionId": "debug-session",
+                "runId": time.strftime("%Y%m%d-%H%M%S"),
+                "hypothesisId": hypothesis_id,
+                "location": location,
+                "message": message,
+                "data": data,
+                "timestamp": int(time.time() * 1000),
+            }
+            with open(_DEBUG_LOG_PATH, "a", encoding="utf-8") as f:
+                f.write(json.dumps(payload) + "\n")
+        except Exception:
+            pass
 
 
 class WFSimInterface:
