@@ -89,7 +89,7 @@ def main():
         done = False
         while not done and step_count < 10:  # Limit to 10 steps for demo
             # Get action from agent (random at first since not trained)
-            action, _, _ = agent.select_action(obs)
+            action, log_prob, value = agent.select_action(obs)
             
             # Step environment
             obs, reward, terminated, truncated, step_info = env.step(action)
