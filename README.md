@@ -6,6 +6,15 @@ Reinforcement learning system using Proximal Policy Optimization (PPO) to optimi
 
 This project implements a PPO-based RL agent that learns to control turbine yaw angles to maximize total wind farm power output through wake steering. The agent interacts with WFSim (MATLAB) through a Python interface, using a Gymnasium-compatible environment.
 
+## Quick Start
+
+**New to this project?** Check out [`QUICKSTART.md`](QUICKSTART.md) for a step-by-step guide to get started in minutes!
+
+**Want to see it in action?** Run the example script:
+```bash
+python example.py
+```
+
 ## Features
 
 - **PPO Algorithm**: PyTorch implementation of Proximal Policy Optimization
@@ -119,8 +128,13 @@ RL-for-Wind-Farm/
 ├── train.py              # Training script
 ├── evaluate.py           # Evaluation script
 ├── utils.py              # Utility functions
+├── example.py            # Simple usage example
+├── test_setup.py         # Setup verification script
 ├── requirements.txt      # Python dependencies
 ├── README.md            # This file
+├── QUICKSTART.md        # Quick start guide
+├── TESTING.md           # Detailed testing guide
+├── .gitignore           # Git ignore patterns
 ├── checkpoints/         # Saved models (created during training)
 ├── logs/                # Training logs (created during training)
 └── evaluation_results/  # Evaluation outputs (created during evaluation)

@@ -7,7 +7,8 @@ import os
 from pathlib import Path
 
 # Wind Farm Configuration
-WFSIM_PATH = "/Users/akhilpatel/Desktop/Dissertation/WFSim-master"  # Path to WFSim directory (user must set this)
+# Set WFSIM_PATH environment variable or update this directly
+WFSIM_PATH = os.getenv("WFSIM_PATH", None)  # Path to WFSim directory (set via environment variable)
 LAYOUT_NAME = "sowfa_9turb_apc_alm_turbl"  # Default layout, can be changed
 MODEL_OPTIONS = "solverSet_default"  # Solver options function name
 
