@@ -37,17 +37,16 @@ env/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# PyTorch
-*.pth
-*.pt
-!checkpoints/*.pt
-
 # Training outputs
-checkpoints/
 logs/
 plots/
 evaluation_results/
 *.log
+
+# PyTorch models (exclude from repo, too large)
+*.pth
+*.pt
+checkpoints/
 
 # MATLAB
 *.asv

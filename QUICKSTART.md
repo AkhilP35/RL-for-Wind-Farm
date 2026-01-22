@@ -18,14 +18,27 @@ pip install -r requirements.txt
 
 ### Step 2: Install MATLAB Engine API for Python
 
-```bash
-# Navigate to your MATLAB installation directory
-cd "$(python -c 'import matlab.engine; print(matlab.engine.__file__.rsplit("/", 3)[0])')" 2>/dev/null || \
-cd /Applications/MATLAB_R20XX.app/extern/engines/python
+Navigate to your MATLAB installation's engine directory and install:
 
-# Install the engine
+**macOS:**
+```bash
+cd /Applications/MATLAB_R20XX.app/extern/engines/python
 python setup.py install
 ```
+
+**Windows:**
+```bash
+cd C:\Program Files\MATLAB\R20XX\extern\engines\python
+python setup.py install
+```
+
+**Linux:**
+```bash
+cd /usr/local/MATLAB/R20XX/extern/engines/python
+python setup.py install
+```
+
+Replace `R20XX` with your MATLAB version (e.g., `R2023b`).
 
 ### Step 3: Configure WFSim Path
 
